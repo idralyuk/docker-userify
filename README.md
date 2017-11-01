@@ -10,3 +10,15 @@ docker run -i --rm -p 2222:2222 -v /var/run/docker.sock:/var/run/docker.sock \
 --env USERIFY_API_KEY="ABCDEFGH" \
 -t idralyuk/docker-userify /sbin/my_init -- /bin/bash
 ```
+
+### Connecting to the Container
+
+```bash
+ssh -p 2222 username@dockerhost
+```
+
+### Executing docker commands in the Container
+
+```bash
+sudo docker ps
+```
