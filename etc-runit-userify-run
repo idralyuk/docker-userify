@@ -1,0 +1,7 @@
+#!/bin/bash
+
+USERIFY=/opt/userify/shim.sh
+
+[ -x $USERIFY ] || exit 5
+
+exec $USERIFY

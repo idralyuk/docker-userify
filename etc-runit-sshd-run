@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# pull in sysconfig settings
+[ -f /etc/sysconfig/sshd ] && . /etc/sysconfig/sshd
+
+SSHD=/usr/sbin/sshd
+
+[ -x $SSHD ] || exit 5
+[ -f /etc/ssh/sshd_config ] || exit 6
+# Create keys if necessary
+/usr/sbin/sshd-keygen
+
+# `SSHD_PORT` is changed in Dockerfile to the correct port
+exec $SSHD -D -p SSHD_PORT
